@@ -34,8 +34,8 @@ pipeline {
         stage('Deploy Image') {
             steps {
                 script {
-                    withDockerRegistry([ credentialsId: "docker-hub", url: "" ]) {
-                    sh 'docker push mimiobi/udacity-capstone'
+                    withDockerRegistry([ credentialsId: "docker_login", url: "" ]) {
+                    sh 'docker push lawaladekunle/udacity-capstone'
                     }
                 }
             }
