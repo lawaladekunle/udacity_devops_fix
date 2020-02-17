@@ -26,7 +26,7 @@ pipeline {
         stage('Building image') {
             steps {
                 script {
-                    sh 'docker build --tag=udacity-capstone .'
+                    sh 'docker build --tag=lawaladekunle/udacity-capstone .'
                 }
             }
         }
