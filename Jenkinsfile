@@ -45,7 +45,7 @@ pipeline {
             steps {
                script {
                    // Latest
-                   sh '/var/lib/jenkins/kubectl apply -f Deployment/green-webapp-deploy.yml --kubeconfig /var/lib/jenkins/config' 
+                   sh '/var/lib/jenkins/kubectl apply -f deployment/green-webapp-deploy.yml --kubeconfig /var/lib/jenkins/config' 
                }
             }
         }
@@ -61,7 +61,7 @@ pipeline {
         stage ('Add latest blue deployment to AWS Loadbalancer') {
             steps {
                script {
-                   sh '/var/lib/jenkins/kubectl apply -f Deployment/blue-webapp-deploy.yml --kubeconfig /var/lib/jenkins/config'
+                   sh '/var/lib/jenkins/kubectl apply -f deployment/blue-webapp-deploy.yml --kubeconfig /var/lib/jenkins/config'
                }
             }
         }
