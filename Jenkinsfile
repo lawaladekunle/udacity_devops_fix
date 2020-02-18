@@ -45,7 +45,7 @@ pipeline {
             steps {
                script {
                    // Latest
-                   sh 'kubectl apply -f Deployment/green-webapp-deploy.yml'
+                   sh 'kubectl apply -f Deployment/green-webapp-deploy.yml --kubeconfig /home/ec2-user/.kube/config' 
                }
             }
         }
@@ -53,7 +53,7 @@ pipeline {
         stage ('Remove old blue deployment from AWS Loadbalancer') {
             steps {
                script {
-                   sh 'kubectl delete deploy/web-deployment-blue'
+                   sh 'kubectl delete deploy/web-deployment-blue --kubeconfig /home/ec2-user/.kube/config'
                }
             }
         }
@@ -61,7 +61,7 @@ pipeline {
         stage ('Add latest blue deployment to AWS Loadbalancer') {
             steps {
                script {
-                   sh 'kubectl apply -f Deployment/blue-webapp-deploy.yml'
+                   sh 'kubectl apply -f Deployment/blue-webapp-deploy.yml --kubeconfig /home/ec2-user/.kube/config'
                }
             }
         }
@@ -69,7 +69,7 @@ pipeline {
         stage ('Remove old green deployment from AWS Loadbalancer') {
             steps {
                script {
-                   sh 'kubectl delete deploy/web-deployment-green'
+                   sh 'kubectl delete deploy/web-deployment-green --kubeconfig /home/ec2-user/.kube/config'
                }
             }
         }
