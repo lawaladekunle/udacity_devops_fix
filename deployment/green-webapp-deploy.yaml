@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: udacity-capstone
-        image: mimiobi/udacity-capstone:latest
+        image: lawaladekunle/udacity-capstone:latest
         ports:
         - containerPort: 80
 ---
